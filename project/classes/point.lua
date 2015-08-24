@@ -18,6 +18,6 @@ end
 function Point:draw()
 
 	love.graphics.setColor( 255,0,0,100 )
-	love.graphics.rectangle( "fill", self.x, self.y, 2,2 )
+	--love.graphics.rectangle( "fill", self.x, self.y, 2,2 ) --uncomment for debug location
 
 end

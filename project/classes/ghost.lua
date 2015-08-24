@@ -67,7 +67,6 @@ function Ghost:NewBubble()
 end
 
 function Ghost:update(dt)
-
     self.dx = self.dx + self.ddx * dt
     self.dy = self.dy + self.ddy * dt
     local acc = 800

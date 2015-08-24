@@ -69,12 +69,10 @@ TDF.Adjectives = {
 	"Impoverished Game Developer",
 	"Crybaby",
 	"Mad",
-	"Myterious",
+	"Mysterious",
 	"Boring",
 	"Free Spirit",
-	"Bastard",
 	"Kingslayer",
-	"Incestuous",
 	"Dragonlover",
 	"Northerner",
 	"Australian",
@@ -98,7 +96,7 @@ function love.load()
 
 	math.randomseed( os.time() )
 
-	love.window.setTitle( "TDF - LD33" )
+	love.window.setTitle( "Super Useless Knight - LD33" )
 	love.window.setMode( 1024, 576 )
 
 	TDF.GameState = require( "hump.gamestate" )
@@ -128,6 +126,7 @@ function love.load()
 	require( "classes.trigger" )
 	require( "classes.point" )
 	require( "classes.minotaur" )
+	require( "classes.door" )
 
 	TDF.Version = "Dank Version"
 	TDF.Authors = { "Arizard", "Rukai", "TheQuinn" }
@@ -140,7 +139,7 @@ function love.load()
 
 	TDF.currentMusic = love.audio.newSource("assets/music/Winner Winner.mp3")
 	TDF.currentMusic:play()
-	TDF.currentMusic:setVolume(0.7)
+	TDF.currentMusic:setVolume(0.5)
     TDF.currentMusic:setLooping(true)
 end
 

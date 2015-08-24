@@ -3,7 +3,6 @@ Hero = TDF.Class{ __includes = {ENTITY} }
 function Hero:Initialize()
 
 	self.type = "Hero"
-
 	self.dx = 100
 	self.grounded = false
 	self.hitbox.h = self.hitbox.h - 4
@@ -23,6 +22,10 @@ function Hero:Initialize()
     dir = "assets/sounds/"
     self.audio = {}
     self.audio.death = love.audio.newSource(dir .. "death1.mp3", "static")
+    self.audio.win = {}
+    for i = 1, 6 do
+        table.insert(self.audio.win, love.audio.newSource(dir .. "voice/win" .. i .. ".wav"))
+    end
 end
 
 function Hero:IsOnGround()
@@ -60,18 +63,21 @@ function Hero:OnCollide( ent1, vert, horz )
 end
 
 function Hero:Update2( dt )
-
 	--self:Jump()
-
 	self.animation:update( dt * ( math.abs(self.dx) / 100 ) )
-
 	self.ddx = 70
-
 	if self:IsOnGround() == false then self.ddx = 0 end
-
 	self.dx = math.clamp( self.dx, -1000, 70 )
 
-	
+    if self.x > 2325 and not winState then
+        self.audio.win[math.random(6)]:play()
+        winState = true
+    end
+
+    if winState then
+		self.dy = -200
+		self.grounded = false
+    end
 end
 
 function Hero:OnKill()

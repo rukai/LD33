@@ -36,9 +36,7 @@ function state:PlaceEntities()
 	end
 
 	local newHero = Hero( 0, 576-102-64, 70-40, 107-20 )
-
 	self.Hero = newHero
-
 	newHero:SetCollisionTable( self.Entities )
 
 	TDF.AddClassToGameState( self, newHero )
@@ -50,35 +48,11 @@ function state:PlaceEntities()
 
 	-- create a trigger to make the jumping do the happen
 	local jumpTrigger = Trigger( 420, 576-55-2, 16, 2 )
-
-	function jumpTrigger:RunOnEntity( ent )
-		if ent.type == "Hero" then
-			ent:Jump()
-		end
-	end
-
 	TDF.AddClassToGameState( self, jumpTrigger )
-
 	local jumpTrigger = Trigger( 420 + 500, 576-55-2, 16, 2 )
-
-	function jumpTrigger:RunOnEntity( ent )
-		if ent.type == "Hero" then
-			ent:Jump()
-		end
-	end
-
 	TDF.AddClassToGameState( self, jumpTrigger )
-
 	local jumpTrigger = Trigger( 420 + 500 + 500, 576-55-2, 16, 2 )
-
-	function jumpTrigger:RunOnEntity( ent )
-		if ent.type == "Hero" then
-			ent:Jump()
-		end
-	end
-
-	--TDF.AddClassToGameState( self, jumpTrigger )
-
+	TDF.AddClassToGameState( self, jumpTrigger )
 
 	local player = Ghost( 100, 400, 40, 40)
 
@@ -89,11 +63,13 @@ function state:PlaceEntities()
 	self.player = player
 
 	self.StartPoint = Point( 0, 576-102-64 )
-	self.EndPoint = Point( 55*100, 576-102-64 )
+	self.EndPoint = Point( 2325, 576-102-64 )
 
 	TDF.AddClassToGameState( self, self.StartPoint )
 	TDF.AddClassToGameState( self, self.EndPoint )
 
+    self.door = Door( 2325, 440, 62, 83)
+    TDF.AddClassToGameState(self, self.door)
 end
 
 function state:enter()
@@ -141,4 +117,11 @@ function state:draw( )
 
     love.graphics.setFont( TDF.Fonts.MainMedium )
     love.graphics.print( self.Hero.FancyName, bx, by - 32 )
+    love.graphics.print( "Press spacebar to become the monster, press r to restart", bx, by - 60 )
+
+    if winState then
+        love.graphics.setColor( 255,0,0 )
+        love.graphics.setFont( TDF.Fonts.MainLarge )
+        love.graphics.print("You are the monster!", 270, 250)
+    end
 end
