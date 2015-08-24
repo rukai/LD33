@@ -18,10 +18,10 @@ Press r to restart the game.
 ## Credits
 Super duper special thanks to the following for their creative commons audio clips and music.
 
-Winner Winner - http://incompetech.com/music/royalty-free/collections.php
-Ghost Whoosh:  - http://soundbible.com/1247-Wind.html
-Spring:       - http://soundbible.com/85-Cartoon-Hop.html
-Death 1:      - http://soundbible.com/831-Groan.html
+*   Winner Winner - http://incompetech.com/music/royalty-free/collections.php
+*   Ghost Whoosh: - http://soundbible.com/1247-Wind.html
+*   Spring:       - http://soundbible.com/85-Cartoon-Hop.html
+*   Death 1:      - http://soundbible.com/831-Groan.html
 
 ##Requirements
 *   Love2D
